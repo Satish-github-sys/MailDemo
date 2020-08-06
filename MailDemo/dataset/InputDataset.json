@@ -11,11 +11,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Emp.txt",
-				"folderPath": "Input",
+				"fileName": "55_120_compressed_emails.csv.zip",
+				"folderPath": "Input/Input",
 				"container": "mailcsv"
 			},
 			"columnDelimiter": ",",
+			"compressionCodec": "ZipDeflate",
 			"escapeChar": "\\",
 			"quoteChar": "\""
 		},
