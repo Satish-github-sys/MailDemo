@@ -12,6 +12,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "Emp.txt",
+				"folderPath": "Input",
 				"container": "mailcsv"
 			},
 			"columnDelimiter": ",",
