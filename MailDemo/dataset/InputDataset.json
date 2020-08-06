@@ -18,6 +18,7 @@
 			"columnDelimiter": ",",
 			"compressionCodec": "ZipDeflate",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
