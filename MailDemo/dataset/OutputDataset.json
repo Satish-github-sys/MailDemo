@@ -1,0 +1,23 @@
+{
+	"name": "OutputDataset",
+	"properties": {
+		"description": "Output Dataset ",
+		"linkedServiceName": {
+			"referenceName": "MailAzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "input/Output",
+				"container": "mailcsv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
