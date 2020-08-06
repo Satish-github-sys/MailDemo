@@ -1,6 +1,7 @@
 {
 	"name": "InputDataset",
 	"properties": {
+		"description": "Input Dataset",
 		"linkedServiceName": {
 			"referenceName": "MailAzureBlobStorage",
 			"type": "LinkedServiceReference"
