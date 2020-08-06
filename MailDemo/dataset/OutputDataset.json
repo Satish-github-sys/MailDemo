@@ -11,7 +11,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "input/Output",
+				"folderPath": "Output",
 				"container": "mailcsv"
 			},
 			"columnDelimiter": ",",
