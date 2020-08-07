@@ -16,10 +16,9 @@
 				"container": "mailcsv"
 			},
 			"columnDelimiter": ",",
-			"rowDelimiter": "\n",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
-			"quoteChar": "\""
+			"quoteChar": ""
 		},
 		"schema": [
 			{
