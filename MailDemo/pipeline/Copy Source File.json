@@ -86,7 +86,10 @@
 				"typeProperties": {
 					"notebookPath": "/Users/satishkumar.k_hotmail.co.in#ext#@satishkumarkhotmailco.onmicrosoft.com/MailDemo/Scraping",
 					"baseParameters": {
-						"input": "@pipeline().parameters.name"
+						"input": {
+							"value": "@pipeline().parameters.name",
+							"type": "Expression"
+						}
 					},
 					"libraries": [
 						{
@@ -100,6 +103,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"Name": {
+				"type": "string",
+				"defaultValue": "/path/filename"
+			}
+		},
 		"annotations": []
 	}
 }
