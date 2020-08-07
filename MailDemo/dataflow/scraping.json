@@ -14,8 +14,12 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
-			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false) ~> MailSource"
+			"transformations": [
+				{
+					"name": "DerivedColumns"
+				}
+			],
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false) ~> MailSource\nMailSource derive(User_Name = byName(byName(\"fields\"))) ~> DerivedColumns"
 		}
 	}
 }
