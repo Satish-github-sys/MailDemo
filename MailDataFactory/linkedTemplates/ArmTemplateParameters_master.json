@@ -8,6 +8,9 @@
 		"MailAzureBlobStorage_connectionString": {
 			"value": ""
 		},
+		"MailDemoAzureDatabricks_accessToken": {
+			"value": ""
+		},
 		"containerUri": {
 			"value": ""
 		},

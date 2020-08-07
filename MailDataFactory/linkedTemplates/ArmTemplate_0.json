@@ -10,6 +10,10 @@
 		"MailAzureBlobStorage_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'MailAzureBlobStorage'"
+		},
+		"MailDemoAzureDatabricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'MailDemoAzureDatabricks'"
 		}
 	},
 	"variables": {
@@ -26,6 +30,29 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('MailAzureBlobStorage_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/MailDemoAzureDatabricks')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-7250856231863451.11.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('MailDemoAzureDatabricks_accessToken')]"
+					},
+					"newClusterNodeType": "Standard_D3_v2 ",
+					"newClusterNumOfWorker": "2",
+					"newClusterSparkEnvVars": {
+						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+					},
+					"newClusterVersion": "4.2"
 				}
 			},
 			"dependsOn": []
@@ -80,7 +107,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"folderPath": "Output",
+						"fileName": "emails.csv",
+						"folderPath": "Output/55_120_compressed_emails.csv.zip",
 						"container": "mailcsv"
 					},
 					"columnDelimiter": ",",
@@ -88,7 +116,16 @@
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
-				"schema": []
+				"schema": [
+					{
+						"name": "file",
+						"type": "String"
+					},
+					{
+						"name": "message",
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/MailAzureBlobStorage')]"
@@ -102,8 +139,8 @@
 				"description": "Copy Source File",
 				"activities": [
 					{
-						"name": "Copy Source File",
-						"description": "Copy Source File",
+						"name": "CopyFile",
+						"description": "CopyFile",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -163,13 +200,58 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "Scraping",
+						"type": "DatabricksNotebook",
+						"dependsOn": [
+							{
+								"activity": "CopyFile",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/satishkumar.k_hotmail.co.in#ext#@satishkumarkhotmailco.onmicrosoft.com/MailDemo/Scraping",
+							"baseParameters": {
+								"input": {
+									"value": "@pipeline().parameters.name",
+									"type": "Expression"
+								}
+							},
+							"libraries": [
+								{
+									"jar": ""
+								}
+							]
+						},
+						"linkedServiceName": {
+							"referenceName": "MailDemoAzureDatabricks",
+							"type": "LinkedServiceReference"
+						}
 					}
 				],
+				"parameters": {
+					"Name": {
+						"type": "string",
+						"defaultValue": "/path/filename"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/InputDataset')]",
-				"[concat(variables('factoryId'), '/datasets/OutputDataset')]"
+				"[concat(variables('factoryId'), '/datasets/OutputDataset')]",
+				"[concat(variables('factoryId'), '/linkedServices/MailDemoAzureDatabricks')]"
 			]
 		}
 	]

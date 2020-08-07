@@ -6,14 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "MailDataFactory"
-		},
-		"MailAzureBlobStorage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'MailAzureBlobStorage'"
-		},
-		"MailDemoAzureDatabricks_accessToken": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accessToken' of 'MailDemoAzureDatabricks'"
 		}
 	},
 	"variables": {
@@ -78,15 +70,13 @@
 						"inputs": [
 							{
 								"referenceName": "InputDataset",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "OutputDataset",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -138,44 +128,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/InputDataset')]",
 				"[concat(variables('factoryId'), '/datasets/OutputDataset')]",
 				"[concat(variables('factoryId'), '/linkedServices/MailDemoAzureDatabricks')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/InputDataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Input Dataset",
-				"linkedServiceName": {
-					"referenceName": "MailAzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "55_120_compressed_emails.csv.zip",
-						"folderPath": "Input/Input",
-						"container": "mailcsv"
-					},
-					"columnDelimiter": ",",
-					"compressionCodec": "ZipDeflate",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/MailAzureBlobStorage')]"
 			]
 		},
 		{
@@ -213,22 +167,6 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/MailAzureBlobStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/MailAzureBlobStorage')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Mail Demo",
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('MailAzureBlobStorage_connectionString')]"
-				}
-			},
 			"dependsOn": []
 		},
 		{
@@ -242,7 +180,7 @@
 					"domain": "https://adb-7250856231863451.11.azuredatabricks.net",
 					"accessToken": {
 						"type": "SecureString",
-						"value": "[parameters('MailDemoAzureDatabricks_accessToken')]"
+						"value": "**********"
 					},
 					"newClusterNodeType": "Standard_D3_v2 ",
 					"newClusterNumOfWorker": "2",
