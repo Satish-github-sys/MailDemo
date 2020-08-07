@@ -19,7 +19,7 @@
 					"name": "DerivedColumns"
 				}
 			],
-			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false) ~> MailSource\nMailSource derive(User_Name = byName(byName(\"fields\"))) ~> DerivedColumns"
+			"script": "source(output(\n\t\tfile as string,\n\t\tmessage as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tmultiLineRow: true) ~> MailSource\nMailSource derive(User_Name = byName(\"file\")) ~> DerivedColumns"
 		}
 	}
 }
