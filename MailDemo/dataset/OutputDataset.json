@@ -11,7 +11,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "mailcsv"
+				"fileName": "emails.csv",
+				"folderPath": "Output/55_120_compressed_emails.csv.zip",
+				"container": "mailcsv"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
