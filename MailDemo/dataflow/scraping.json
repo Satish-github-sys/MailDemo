@@ -17,9 +17,12 @@
 			"transformations": [
 				{
 					"name": "DerivedColumns"
+				},
+				{
+					"name": "FilterOnlyVaildRecord"
 				}
 			],
-			"script": "source(output(\n\t\tfile as string,\n\t\tmessage as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tmultiLineRow: true) ~> MailSource\nMailSource derive(User_Name = byName(\"file\")) ~> DerivedColumns"
+			"script": "source(output(\n\t\tfile as string,\n\t\tmessage as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tmultiLineRow: true) ~> MailSource\nMailSource derive(IsvaildRow = isNull(message)) ~> DerivedColumns\nDerivedColumns split(isNull(message)!= true(),\n\tdisjoint: false) ~> FilterOnlyVaildRecord@(OnlyVaildRecord, InvaildRecord)"
 		}
 	}
 }
