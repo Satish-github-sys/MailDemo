@@ -1,0 +1,13 @@
+{
+	"name": "scraping",
+	"properties": {
+		"description": "Scrape just 10 folders of users",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [],
+			"script": ""
+		}
+	}
+}
