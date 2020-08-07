@@ -20,6 +20,15 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "file",
+				"type": "String"
+			},
+			{
+				"name": "message",
+				"type": "String"
+			}
+		]
 	}
 }
