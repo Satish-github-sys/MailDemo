@@ -4,8 +4,8 @@
 		"description": "Copy Source File",
 		"activities": [
 			{
-				"name": "Copy Source File",
-				"description": "Copy Source File",
+				"name": "CopyFile",
+				"description": "CopyFile",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -65,11 +65,11 @@
 				]
 			},
 			{
-				"name": "scraping",
-				"type": "ExecuteDataFlow",
+				"name": "Scraping",
+				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
-						"activity": "Copy Source File",
+						"activity": "CopyFile",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -84,14 +84,19 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataflow": {
-						"referenceName": "scraping",
-						"type": "DataFlowReference"
+					"notebookPath": "/Users/satishkumar.k_hotmail.co.in#ext#@satishkumarkhotmailco.onmicrosoft.com/MailDemo/Scraping",
+					"baseParameters": {
+						"input": "@pipeline().parameters.name"
 					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
-					}
+					"libraries": [
+						{
+							"jar": ""
+						}
+					]
+				},
+				"linkedServiceName": {
+					"referenceName": "MailDemoAzureDatabricks",
+					"type": "LinkedServiceReference"
 				}
 			}
 		],
