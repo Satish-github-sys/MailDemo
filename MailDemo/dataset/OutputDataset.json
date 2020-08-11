@@ -15,7 +15,7 @@
 				"folderPath": "Output/55_120_compressed_emails.csv.zip",
 				"container": "mailcsv"
 			},
-			"columnDelimiter": "",
+			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
