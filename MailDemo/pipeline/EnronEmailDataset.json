@@ -64,7 +64,7 @@
 				]
 			},
 			{
-				"name": "Custom1",
+				"name": "ProcessEnronEmail",
 				"type": "Custom",
 				"dependsOn": [
 					{
