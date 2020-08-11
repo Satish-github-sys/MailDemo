@@ -15,7 +15,7 @@
 				"folderPath": "Input/Input",
 				"container": "mailcsv"
 			},
-			"columnDelimiter": "",
+			"columnDelimiter": ",",
 			"compressionCodec": "ZipDeflate",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
