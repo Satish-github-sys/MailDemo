@@ -1,0 +1,12 @@
+{
+	"name": "MailDemo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MailDemoAzureTableStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": []
+	}
+}
