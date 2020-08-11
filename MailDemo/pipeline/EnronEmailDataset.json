@@ -83,10 +83,20 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"command": "main.py",
+					"resourceLinkedService": {
+						"referenceName": "MailAzureBlobStorage",
+						"type": "LinkedServiceReference"
+					},
+					"folderPath": "mailcsv/SourceCode",
 					"referenceObjects": {
 						"linkedServices": [],
 						"datasets": []
 					}
+				},
+				"linkedServiceName": {
+					"referenceName": "MailDemoAzureBatch",
+					"type": "LinkedServiceReference"
 				}
 			}
 		],
