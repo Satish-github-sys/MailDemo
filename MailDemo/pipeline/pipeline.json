@@ -33,6 +33,228 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Bcc",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Bcc",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cc",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cc",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ContentTransferEncoding",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ContentTransferEncoding",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ContentType",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ContentType",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Date",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Folder",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Folder",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "From",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "From",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Message-ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Messageid",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MimeVersion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MimeVersion",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Subject",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subject",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "To",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "To",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "UserName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "UserName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "XFileName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "XFileName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "XFolder",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "XFolder",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "XFrom",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "XFrom",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "XOrigin",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "XOrigin",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "XTo",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "XTo",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Xbcc",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Xbcc",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Xcc",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Xcc",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "body",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "body",
+									"type": "String"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": false,
@@ -48,7 +270,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "MailDemo",
+						"referenceName": "maildemotb",
 						"type": "DatasetReference"
 					}
 				]
