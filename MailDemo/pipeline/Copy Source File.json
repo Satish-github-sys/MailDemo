@@ -103,7 +103,7 @@
 				}
 			},
 			{
-				"name": "todatabase",
+				"name": "ToAzureTable",
 				"description": "todatabase",
 				"type": "Copy",
 				"dependsOn": [
