@@ -1,0 +1,109 @@
+{
+	"name": "SourceDataset_js1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MailAzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Output.csv",
+				"folderPath": "Output",
+				"container": "mailcsv"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Prop_0",
+				"type": "String"
+			},
+			{
+				"name": "UserName",
+				"type": "String"
+			},
+			{
+				"name": "Folder",
+				"type": "String"
+			},
+			{
+				"name": "Message-ID",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "From",
+				"type": "String"
+			},
+			{
+				"name": "To",
+				"type": "String"
+			},
+			{
+				"name": "Subject",
+				"type": "String"
+			},
+			{
+				"name": "Cc",
+				"type": "String"
+			},
+			{
+				"name": "MimeVersion",
+				"type": "String"
+			},
+			{
+				"name": "ContentType",
+				"type": "String"
+			},
+			{
+				"name": "ContentTransferEncoding",
+				"type": "String"
+			},
+			{
+				"name": "Bcc",
+				"type": "String"
+			},
+			{
+				"name": "XFrom",
+				"type": "String"
+			},
+			{
+				"name": "XTo",
+				"type": "String"
+			},
+			{
+				"name": "Xcc",
+				"type": "String"
+			},
+			{
+				"name": "Xbcc",
+				"type": "String"
+			},
+			{
+				"name": "XFolder",
+				"type": "String"
+			},
+			{
+				"name": "XOrigin",
+				"type": "String"
+			},
+			{
+				"name": "XFileName",
+				"type": "String"
+			},
+			{
+				"name": "body",
+				"type": "String"
+			}
+		]
+	}
+}
