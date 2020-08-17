@@ -22,11 +22,87 @@
 		},
 		"schema": [
 			{
-				"name": "file",
+				"name": "Prop_0",
 				"type": "String"
 			},
 			{
-				"name": "message",
+				"name": "UserName",
+				"type": "String"
+			},
+			{
+				"name": "Folder",
+				"type": "String"
+			},
+			{
+				"name": "Message-ID",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "From",
+				"type": "String"
+			},
+			{
+				"name": "To",
+				"type": "String"
+			},
+			{
+				"name": "Subject",
+				"type": "String"
+			},
+			{
+				"name": "Cc",
+				"type": "String"
+			},
+			{
+				"name": "MimeVersion",
+				"type": "String"
+			},
+			{
+				"name": "ContentType",
+				"type": "String"
+			},
+			{
+				"name": "ContentTransferEncoding",
+				"type": "String"
+			},
+			{
+				"name": "Bcc",
+				"type": "String"
+			},
+			{
+				"name": "XFrom",
+				"type": "String"
+			},
+			{
+				"name": "XTo",
+				"type": "String"
+			},
+			{
+				"name": "Xcc",
+				"type": "String"
+			},
+			{
+				"name": "Xbcc",
+				"type": "String"
+			},
+			{
+				"name": "XFolder",
+				"type": "String"
+			},
+			{
+				"name": "XOrigin",
+				"type": "String"
+			},
+			{
+				"name": "XFileName",
+				"type": "String"
+			},
+			{
+				"name": "body",
 				"type": "String"
 			}
 		]
