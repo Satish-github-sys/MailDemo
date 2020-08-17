@@ -1,0 +1,15 @@
+{
+	"name": "DestinationDataset_js1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MailDemoAzureTableStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "demo"
+		}
+	}
+}
