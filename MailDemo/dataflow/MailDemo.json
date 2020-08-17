@@ -14,8 +14,12 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
-			"script": "source(output(\n\t\tProp_0 as string,\n\t\tUserName as string,\n\t\tFolder as string,\n\t\t{Message-ID} as string,\n\t\tDate as string,\n\t\tFrom as string,\n\t\tTo as string,\n\t\tSubject as string,\n\t\tCc as string,\n\t\tMimeVersion as string,\n\t\tContentType as string,\n\t\tContentTransferEncoding as string,\n\t\tBcc as string,\n\t\tXFrom as string,\n\t\tXTo as string,\n\t\tXcc as string,\n\t\tXbcc as string,\n\t\tXFolder as string,\n\t\tXOrigin as string,\n\t\tXFileName as string,\n\t\tbody as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> StructuredData"
+			"transformations": [
+				{
+					"name": "Select"
+				}
+			],
+			"script": "source(output(\n\t\tProp_0 as string,\n\t\tUserName as string,\n\t\tFolder as string,\n\t\t{Message-ID} as string,\n\t\tDate as string,\n\t\tFrom as string,\n\t\tTo as string,\n\t\tSubject as string,\n\t\tCc as string,\n\t\tMimeVersion as string,\n\t\tContentType as string,\n\t\tContentTransferEncoding as string,\n\t\tBcc as string,\n\t\tXFrom as string,\n\t\tXTo as string,\n\t\tXcc as string,\n\t\tXbcc as string,\n\t\tXFolder as string,\n\t\tXOrigin as string,\n\t\tXFileName as string,\n\t\tbody as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> StructuredData\nStructuredData select(mapColumn(\n\t\tProp_0,\n\t\tUserName,\n\t\tFolder,\n\t\t{Message-ID},\n\t\tDate,\n\t\tFrom,\n\t\tTo,\n\t\tSubject,\n\t\tCc,\n\t\tMimeVersion,\n\t\tContentType,\n\t\tContentTransferEncoding,\n\t\tBcc,\n\t\tXFrom,\n\t\tXTo,\n\t\tXcc,\n\t\tXbcc,\n\t\tXFolder,\n\t\tXOrigin,\n\t\tXFileName,\n\t\tbody\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select"
 		}
 	}
 }
