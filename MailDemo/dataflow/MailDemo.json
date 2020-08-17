@@ -1,0 +1,21 @@
+{
+	"name": "MailDemo",
+	"properties": {
+		"description": "MailDemo",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "OutputDataset",
+						"type": "DatasetReference"
+					},
+					"name": "unstructured "
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"script": "source(output(\n\t\tfile as string,\n\t\tmessage as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> unstructured "
+		}
+	}
+}
